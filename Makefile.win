@@ -1,0 +1,37 @@
+# Project: Games
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = ../项目素材/源文件/GN.o ../项目素材/源文件/Sanke.o ../项目素材/源文件/Shoot.o ../项目素材/源文件/main.o
+LINKOBJ  = ../项目素材/源文件/GN.o ../项目素材/源文件/Sanke.o ../项目素材/源文件/Shoot.o ../项目素材/源文件/main.o
+LIBS     = -L"D:/LenovoSoftstore/Install/DevC/MinGW64/lib" -L"D:/LenovoSoftstore/Install/DevC/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
+INCS     = -I"D:/LenovoSoftstore/Install/DevC/MinGW64/include" -I"D:/LenovoSoftstore/Install/DevC/MinGW64/x86_64-w64-mingw32/include" -I"D:/LenovoSoftstore/Install/DevC/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"D:/LenovoSoftstore/Install/DevC/MinGW64/include" -I"D:/LenovoSoftstore/Install/DevC/MinGW64/x86_64-w64-mingw32/include" -I"D:/LenovoSoftstore/Install/DevC/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"D:/LenovoSoftstore/Install/DevC/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+BIN      = Games.exe
+CXXFLAGS = $(CXXINCS) 
+CFLAGS   = $(INCS) 
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CC) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+../项目素材/源文件/GN.o: ../项目素材/源文件/GN.c
+	$(CC) -c ../项目素材/源文件/GN.c -o ../项目素材/源文件/GN.o $(CFLAGS)
+
+../项目素材/源文件/Sanke.o: ../项目素材/源文件/Sanke.c
+	$(CC) -c ../项目素材/源文件/Sanke.c -o ../项目素材/源文件/Sanke.o $(CFLAGS)
+
+../项目素材/源文件/Shoot.o: ../项目素材/源文件/Shoot.c
+	$(CC) -c ../项目素材/源文件/Shoot.c -o ../项目素材/源文件/Shoot.o $(CFLAGS)
+
+../项目素材/源文件/main.o: ../项目素材/源文件/main.c
+	$(CC) -c ../项目素材/源文件/main.c -o ../项目素材/源文件/main.o $(CFLAGS)
